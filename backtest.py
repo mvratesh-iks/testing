@@ -70,8 +70,18 @@ TARGET_MULTIPLIER     = 1.5    # Target = 1.5x risk (was 2.0 in v1)
 ONE_TRADE_PER_DAY     = True   # Max 1 trade per stock per day
 
 WATCHLIST = [
-    "RELIANCE", "TATAMOTORS", "ICICIBANK",
-    "HDFCBANK", "INFY", "TATASTEEL", "ADANIENT",
+    # Energy & Conglomerates
+    "RELIANCE", "ADANIENT",
+    # Auto
+    "TATAMOTORS", "MARUTI", "BAJAJ-AUTO",
+    # Banking & Finance
+    "ICICIBANK", "HDFCBANK", "AXISBANK", "KOTAKBANK", "SBIN",
+    # IT
+    "INFY", "TCS", "WIPRO",
+    # Metals
+    "TATASTEEL", "JSWSTEEL",
+    # Pharma
+    "SUNPHARMA", "DRREDDY",
 ]
 
 

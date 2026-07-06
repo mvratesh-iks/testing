@@ -50,8 +50,18 @@ MAX_HOLD_BARS       = 20      # Exit after 20 bars (100 min) even if no signal
 LAST_ENTRY_TIME     = "14:30" # Stop new entries 1hr before close
 
 WATCHLIST = [
-    "RELIANCE", "TATAMOTORS", "ICICIBANK",
-    "HDFCBANK", "INFY", "TATASTEEL", "ADANIENT",
+    # Energy & Conglomerates
+    "RELIANCE", "ADANIENT",
+    # Auto
+    "TATAMOTORS", "MARUTI", "BAJAJ-AUTO",
+    # Banking & Finance
+    "ICICIBANK", "HDFCBANK", "AXISBANK", "KOTAKBANK", "SBIN",
+    # IT
+    "INFY", "TCS", "WIPRO",
+    # Metals
+    "TATASTEEL", "JSWSTEEL",
+    # Pharma
+    "SUNPHARMA", "DRREDDY",
 ]
 
 
