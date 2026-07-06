@@ -66,15 +66,36 @@ CONFIG = {
     "TARGET_MULTIPLIER": 1.5,         # Target = 1.5x risk (was 2.0)
 
     # === Stocks to watch (curated for ORB - high liquidity + volatility) ===
-    # Diversified across Energy, Auto, Banking, IT, Metals
+    # Diversified across 8 sectors, all Nifty 50 / high liquidity
     "WATCHLIST": [
-        "RELIANCE",     # Energy/Conglomerate - massive liquidity, news-driven
-        "TATAMOTORS",   # Auto - high intraday volatility, strong momentum
-        "ICICIBANK",    # Banking - reactive to macro news
-        "HDFCBANK",     # Banking - most liquid bank, tight spreads
-        "INFY",         # IT - responds to global cues, gap opens common
-        "TATASTEEL",    # Metals - volatile, great breakout candidate
-        "ADANIENT",     # Diversified - high vol (small size only!)
+        # Energy & Conglomerates
+        "RELIANCE",     # Most liquid stock on NSE
+        "ADANIENT",     # High volatility, strong moves
+
+        # Auto
+        "TATAMOTORS",   # Best performer in v1+v2 backtest
+        "MARUTI",       # Large cap auto, clean trends
+        "BAJAJ-AUTO",   # Strong intraday momentum
+
+        # Banking & Finance
+        "ICICIBANK",    # High liquidity
+        "HDFCBANK",     # Most liquid bank
+        "AXISBANK",     # More volatile than HDFC/ICICI
+        "KOTAKBANK",    # Strong institutional activity
+        "SBIN",         # High retail + institutional volume
+
+        # IT
+        "INFY",         # Reacts to global cues
+        "TCS",          # Most liquid IT stock
+        "WIPRO",        # More volatile IT name
+
+        # Metals & Mining
+        "TATASTEEL",    # High intraday volatility
+        "JSWSTEEL",     # Similar to TATASTEEL, different moves
+
+        # Pharma
+        "SUNPHARMA",    # Defensive + news-driven moves
+        "DRREDDY",      # Good intraday range, pharma leader
     ],
 
     # === Timing (IST) ===
