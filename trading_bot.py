@@ -24,6 +24,8 @@ WHY THIS STRATEGY?
 import datetime
 import logging
 import time
+import csv
+import os
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -137,6 +139,7 @@ class Position:
 class BotState:
     opening_ranges: dict = field(default_factory=dict)
     positions: dict = field(default_factory=dict)
+    closed_trades: list = field(default_factory=list)
     trades_today: int = 0
     realised_pnl: float = 0.0
     is_active: bool = True
@@ -379,7 +382,18 @@ class ORBStrategy:
         if pos.side == "SELL":
             pnl = -pnl
         self.state.realised_pnl += pnl
-        logging.info(f"EXITED [{reason}]: {pos.symbol} @ {exit_price} | P&L: Rs.{pnl:.2f}")
+        self.state.closed_trades.append({
+            "symbol":    pos.symbol,
+            "side":      pos.side,
+            "entry":     pos.entry_price,
+            "exit":      exit_price,
+            "stop_loss": pos.stop_loss,
+            "target":    pos.target,
+            "qty":       pos.quantity,
+            "pnl":       round(pnl, 2),
+            "reason":    reason,
+        })
+        logging.info(f"EXITED [{reason}]: {pos.symbol} @ {exit_price} | P&L: ₹{pnl:.2f}")
 
     def _should_stop_trading(self):
         if self.state.realised_pnl <= -self.config["MAX_LOSS_PER_DAY"]:
@@ -392,6 +406,76 @@ class ORBStrategy:
 # ================================================================
 # MAIN BOT LOOP
 # ================================================================
+
+def save_daily_report(state, config):
+    """Save a daily trading report as a CSV and a readable text file."""
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    os.makedirs("daily_logs", exist_ok=True)
+
+    # === TEXT REPORT ===
+    txt_path = f"daily_logs/{today}_report.txt"
+    with open(txt_path, "w") as f:
+        f.write("=" * 60 + "\n")
+        f.write(f"  PAPER TRADING DAILY REPORT — {today}\n")
+        f.write("=" * 60 + "\n\n")
+
+        f.write(f"  Capital:         ₹{config['TOTAL_CAPITAL']:,}\n")
+        f.write(f"  Trades today:    {state.trades_today}\n")
+        f.write(f"  Gross P&L:       ₹{state.realised_pnl:+,.2f}\n")
+        est_brokerage = state.trades_today * 40
+        net = state.realised_pnl - est_brokerage
+        f.write(f"  Est. brokerage:  ₹{est_brokerage:,.2f}\n")
+        f.write(f"  NET P&L:         ₹{net:+,.2f}\n")
+        verdict = "✅ Profitable day!" if net > 0 else ("⚠️  Breakeven" if net > -200 else "❌ Loss day")
+        f.write(f"  Verdict:         {verdict}\n\n")
+
+        f.write("-" * 60 + "\n")
+        f.write("  OPENING RANGES\n")
+        f.write("-" * 60 + "\n")
+        f.write(f"  {'Stock':<14} {'OR High':>10} {'OR Low':>10} {'Range %':>10}\n")
+        for symbol, orb in state.opening_ranges.items():
+            if orb.high > 0 and orb.low > 0:
+                range_pct = (orb.high - orb.low) / orb.low * 100
+                f.write(f"  {symbol:<14} {orb.high:>10.2f} {orb.low:>10.2f} {range_pct:>9.2f}%\n")
+            else:
+                f.write(f"  {symbol:<14} {'No data':>10}\n")
+
+        f.write("\n" + "-" * 60 + "\n")
+        f.write("  TRADES EXECUTED\n")
+        f.write("-" * 60 + "\n")
+
+        if not state.closed_trades:
+            f.write("  No trades executed today.\n")
+            if state.trades_today == 0:
+                f.write("  Possible reasons:\n")
+                f.write("  - Bot started after 9:30 AM (missed opening range)\n")
+                f.write("  - No stock broke out beyond the 0.20% filter\n")
+                f.write("  - Opening ranges were too narrow (<0.50%)\n")
+        else:
+            f.write(f"  {'Stock':<12} {'Side':<6} {'Entry':>8} {'Exit':>8} "
+                    f"{'SL':>8} {'Target':>8} {'Qty':>5} {'P&L':>10} {'Reason'}\n")
+            for t in state.closed_trades:
+                f.write(f"  {t['symbol']:<12} {t['side']:<6} {t['entry']:>8.2f} "
+                        f"{t['exit']:>8.2f} {t['stop_loss']:>8.2f} {t['target']:>8.2f} "
+                        f"{t['qty']:>5} {t['pnl']:>+10.2f} {t['reason']}\n")
+
+        f.write("\n" + "=" * 60 + "\n")
+        f.write("  Start time: 9:15 AM IST | Square-off: 3:00 PM IST\n")
+        f.write("=" * 60 + "\n")
+
+    # === CSV (for tracking over multiple days) ===
+    csv_path = "daily_logs/all_days_summary.csv"
+    file_exists = os.path.exists(csv_path)
+    with open(csv_path, "a", newline="") as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(["date", "trades", "gross_pnl", "est_brokerage", "net_pnl"])
+        writer.writerow([today, state.trades_today, round(state.realised_pnl, 2),
+                         est_brokerage, round(net, 2)])
+
+    logging.info(f"📄 Daily report saved → daily_logs/{today}_report.txt")
+    logging.info(f"📊 Running summary  → daily_logs/all_days_summary.csv")
+
 
 def now_hhmm() -> str:
     return datetime.datetime.now().strftime("%H:%M")
@@ -436,7 +520,7 @@ def run_bot():
         # Square-off before close
         if current_time >= CONFIG["SQUARE_OFF_TIME"]:
             strategy.square_off_all()
-            logging.info(f"Day complete. Total P&L: Rs.{state.realised_pnl:.2f}")
+            logging.info(f"Day complete. Total P&L: ₹{state.realised_pnl:.2f}")
             break
 
         # Regular trading loop
@@ -445,6 +529,10 @@ def run_bot():
             strategy.manage_open_positions()
 
         time.sleep(60)  # Check every 1 minute
+
+    # Save daily report regardless of how bot stopped
+    save_daily_report(state, CONFIG)
+    logging.info("Bot shut down. Check daily_logs/ folder for today's report.")
 
 
 if __name__ == "__main__":
