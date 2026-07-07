@@ -135,9 +135,27 @@ def load_data(symbol: str) -> list:
     return rows
 
 
+YAHOO_MAP = {
+    "BAJAJ-AUTO": "BAJAJ-AUTO.NS",
+    "DRREDDY":    "DRREDDY.NS",
+    "JSWSTEEL":   "JSWSTEEL.NS",
+    "KOTAKBANK":  "KOTAKBANK.NS",
+    "MARUTI":     "MARUTI.NS",
+    "SBIN":       "SBIN.NS",
+    "SUNPHARMA":  "SUNPHARMA.NS",
+    "TATASTEEL":  "TATASTEEL.NS",
+    "WIPRO":      "WIPRO.NS",
+    "AXISBANK":   "AXISBANK.NS",
+    "TCS":        "TCS.NS",
+}
+
+def yahoo_ticker(symbol):
+    return YAHOO_MAP.get(symbol, f"{symbol}.NS")
+
+
 def load_from_yfinance(symbol: str) -> list:
     """Download recent OHLCV data from Yahoo Finance (FREE)."""
-    ticker = yf.Ticker(f"{symbol}.NS")   # .NS suffix = NSE
+    ticker = yf.Ticker(yahoo_ticker(symbol))
     try:
         df = ticker.history(period=f"{LOOKBACK_DAYS}d", interval=INTERVAL)
     except Exception as e:

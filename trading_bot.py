@@ -154,6 +154,23 @@ class BrokerInterface:
         self.paper_mode = config["PAPER_TRADING"]
         self.groww = None
 
+        # Yahoo Finance symbol map — some NSE symbols differ from standard
+        # Format: "NSE_SYMBOL": "YAHOO_TICKER.NS"
+        self.yahoo_map = {
+            "BAJAJ-AUTO": "BAJAJ-AUTO.NS",
+            "DRREDDY":    "DRREDDY.NS",
+            "JSWSTEEL":   "JSWSTEEL.NS",
+            "KOTAKBANK":  "KOTAKBANK.NS",
+            "MARUTI":     "MARUTI.NS",
+            "SBIN":       "SBIN.NS",
+            "SUNPHARMA":  "SUNPHARMA.NS",
+            "TATASTEEL":  "TATASTEEL.NS",
+            "WIPRO":      "WIPRO.NS",
+            "AXISBANK":   "AXISBANK.NS",
+            "TCS":        "TCS.NS",
+            # Default pattern for rest: SYMBOL + ".NS"
+        }
+
         if not self.paper_mode:
             # from growwapi import GrowwAPI
             # import pyotp
@@ -167,16 +184,18 @@ class BrokerInterface:
         else:
             logging.info("Paper trading mode - no real orders will be placed")
 
+    def _yahoo_ticker(self, symbol: str) -> str:
+        """Get the correct Yahoo Finance ticker for an NSE symbol."""
+        return self.yahoo_map.get(symbol, f"{symbol}.NS")
+
     def get_ltp(self, symbol: str) -> float:
         """Get Last Traded Price for a symbol."""
         if self.paper_mode:
-            # FREE: Use yfinance to get real NSE prices (~15 min delayed)
-            # NSE symbols on Yahoo Finance need '.NS' suffix (e.g., RELIANCE.NS)
             try:
-                ticker = yf.Ticker(f"{symbol}.NS")
+                ticker = yf.Ticker(self._yahoo_ticker(symbol))
                 data = ticker.history(period="1d", interval="1m")
                 if data.empty:
-                    logging.warning(f"No data for {symbol}")
+                    logging.warning(f"No data for {symbol} — skipping")
                     return 0.0
                 return float(data["Close"].iloc[-1])
             except Exception as e:
@@ -212,15 +231,14 @@ class BrokerInterface:
         # return response["groww_order_id"]
 
     def get_historical_range(self, symbol: str, start, end) -> tuple:
-        """Fetch high/low between two timestamps for opening range."""
+        """Fetch high/low of first 15 min for opening range."""
         if self.paper_mode:
-            # FREE: Fetch real opening range from yfinance
             try:
-                ticker = yf.Ticker(f"{symbol}.NS")
+                ticker = yf.Ticker(self._yahoo_ticker(symbol))
                 data = ticker.history(period="1d", interval="1m")
                 if data.empty:
+                    logging.warning(f"No historical data for {symbol} — skipping")
                     return 0.0, 0.0
-                # Get first 15 minutes of today's data (opening range)
                 opening_bars = data.head(15)
                 high = float(opening_bars["High"].max())
                 low  = float(opening_bars["Low"].min())
@@ -228,7 +246,6 @@ class BrokerInterface:
             except Exception as e:
                 logging.error(f"yfinance error for {symbol}: {e}")
                 return 0.0, 0.0
-        # In real usage: self.groww.get_historical_candle_data(...)
         return 0.0, 0.0
 
 
