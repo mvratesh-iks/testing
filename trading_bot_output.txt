@@ -1,0 +1,326 @@
+python trading_bot.py
+2026-07-08 09:35:37,270 | INFO | Paper trading mode - no real orders will be placed
+2026-07-08 09:35:37,270 | INFO | ============================================================
+2026-07-08 09:35:37,270 | INFO | BOT STARTED | Paper Trading: True
+2026-07-08 09:35:37,270 | INFO | Capital: Rs.10000 | Watchlist: ['RELIANCE', 'ADANIENT', 'TATAMOTORS', 'MARUTI', 'BAJAJ-AUTO', 'ICICIBANK', 'HDFCBANK', 'AXISBANK', 'KOTAKBANK', 'SBIN', 'INFY', 'TCS', 'WIPRO', 'TATASTEEL', 'JSWSTEEL', 'SUNPHARMA', 'DRREDDY']
+2026-07-08 09:35:37,271 | INFO | ============================================================
+2026-07-08 09:35:37,848 | INFO | OR for RELIANCE: High=1300.0, Low=1278.300048828125
+2026-07-08 09:35:37,957 | INFO | OR for ADANIENT: High=3119.0, Low=3097.0
+2026-07-08 09:35:39,438 | ERROR | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-07-08 09:35:40,442 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:35:40,443 | WARNING | No historical data for TATAMOTORS — skipping
+2026-07-08 09:35:40,445 | INFO | OR for TATAMOTORS: High=0.0, Low=0.0
+2026-07-08 09:35:40,646 | INFO | OR for MARUTI: High=14499.0, Low=14287.0
+2026-07-08 09:35:40,750 | INFO | OR for BAJAJ-AUTO: High=10094.0, Low=10021.0
+2026-07-08 09:35:40,856 | INFO | OR for ICICIBANK: High=1415.9000244140625, Low=1410.5999755859375
+2026-07-08 09:35:40,983 | INFO | OR for HDFCBANK: High=829.7000122070312, Low=823.5999755859375
+2026-07-08 09:35:41,104 | INFO | OR for AXISBANK: High=1339.199951171875, Low=1330.5999755859375
+2026-07-08 09:35:41,230 | INFO | OR for KOTAKBANK: High=381.70001220703125, Low=378.25
+2026-07-08 09:35:41,466 | INFO | OR for SBIN: High=1030.9000244140625, Low=1025.5
+2026-07-08 09:35:41,573 | INFO | OR for INFY: High=1079.699951171875, Low=1069.199951171875
+2026-07-08 09:35:41,687 | INFO | OR for TCS: High=2108.300048828125, Low=2090.39990234375
+2026-07-08 09:35:41,797 | INFO | OR for WIPRO: High=175.27999877929688, Low=172.8800048828125
+2026-07-08 09:35:41,908 | INFO | OR for TATASTEEL: High=188.5, Low=187.58999633789062
+2026-07-08 09:35:42,011 | INFO | OR for JSWSTEEL: High=1240.199951171875, Low=1229.0
+2026-07-08 09:35:42,128 | INFO | OR for SUNPHARMA: High=1928.0, Low=1904.0999755859375
+2026-07-08 09:35:42,233 | INFO | OR for DRREDDY: High=1379.5, Low=1362.300048828125
+2026-07-08 09:35:42,795 | ERROR | HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: TATAMOTORS.NS"}}}
+2026-07-08 09:35:43,517 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:35:43,518 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:36:44,734 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:36:44,734 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:37:47,436 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:37:47,436 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:37:48,617 | INFO | [PAPER] SELL 4 TCS @ ~2085.0
+2026-07-08 09:37:48,617 | INFO | ENTERED: SELL 4 TCS @ 2085.0 | SL=2108.300048828125 | Target=2050.0499267578125
+2026-07-08 09:38:50,274 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:38:50,275 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:38:50,960 | INFO | [PAPER] SELL 9 SBIN @ ~1022.7999877929688
+2026-07-08 09:38:50,961 | INFO | ENTERED: SELL 9 SBIN @ 1022.7999877929688 | SL=1030.9000244140625 | Target=1010.6499328613281
+2026-07-08 09:39:52,701 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:39:52,702 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:40:55,065 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:40:55,066 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:41:57,519 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:41:57,520 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:43:00,352 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:43:00,352 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:44:02,763 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:44:02,763 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:45:06,112 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:45:06,113 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:46:09,356 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:46:09,356 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:47:12,031 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:47:12,032 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:48:14,298 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:48:14,300 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:49:16,886 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:49:16,887 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:50:19,409 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:50:19,410 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:51:22,073 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:51:22,074 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:52:24,498 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:52:24,499 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:53:26,860 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:53:26,861 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:54:29,227 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:54:29,227 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:55:32,286 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:55:32,287 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:56:34,795 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:56:34,796 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:57:37,702 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:57:37,703 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:58:40,109 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:58:40,110 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 09:59:42,863 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 09:59:42,865 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:00:45,463 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:00:45,464 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:01:48,063 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:01:48,064 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:02:51,112 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:02:51,112 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:03:54,055 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:03:54,057 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:04:56,658 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:04:56,658 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:05:59,181 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:05:59,182 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:07:01,338 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:07:01,338 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:08:04,504 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:08:04,505 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:09:07,520 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:09:07,522 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:10:09,881 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:10:09,882 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:11:12,823 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:11:12,824 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:11:14,861 | INFO | [PAPER] BUY 9 SBIN @ ~1031.300048828125
+2026-07-08 10:11:14,861 | INFO | EXITED [STOP-LOSS]: SBIN @ 1031.300048828125 | P&L: ₹-76.50
+2026-07-08 10:12:15,574 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:12:15,575 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:13:18,328 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:13:18,328 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:14:20,783 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:14:20,784 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:14:20,998 | INFO | [PAPER] SELL 1 MARUTI @ ~14255.0
+2026-07-08 10:14:20,998 | INFO | ENTERED: SELL 1 MARUTI @ 14255.0 | SL=14499.0 | Target=13889.0
+2026-07-08 10:15:23,858 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:15:23,859 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:16:27,917 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:16:27,917 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:17:30,364 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:17:30,365 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:18:33,911 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:18:33,912 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:19:36,535 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:19:36,535 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:20:39,081 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:20:39,082 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:21:41,881 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:21:41,882 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:22:44,686 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:22:44,686 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:23:47,264 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:23:47,265 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:24:50,581 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:24:50,581 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:25:52,752 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:25:52,752 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:26:55,575 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:26:55,576 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:27:58,437 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:27:58,438 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:29:01,683 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:29:01,684 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:30:04,185 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:30:04,186 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:31:06,692 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:31:06,692 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:32:09,338 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:32:09,339 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:33:12,261 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:33:12,262 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:34:15,365 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:34:15,366 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:35:18,110 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:35:18,112 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:36:20,916 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:36:20,917 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:37:24,066 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:37:24,067 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:38:27,152 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:38:27,152 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:39:30,852 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:39:30,853 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:40:34,845 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:40:34,846 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:41:38,159 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:41:38,160 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:42:41,080 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:42:41,081 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:43:43,837 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:43:43,837 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:44:46,285 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:44:46,285 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:45:49,015 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:45:49,016 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:46:51,822 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:46:51,823 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:47:55,121 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:47:55,122 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:48:57,482 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:48:57,484 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:50:00,783 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:50:00,784 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:51:04,429 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:51:04,430 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:52:09,886 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:52:09,887 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:53:18,346 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:53:18,347 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:54:23,868 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:54:23,868 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:55:29,106 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:55:29,108 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:56:34,799 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:56:34,800 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:57:39,924 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:57:39,925 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:58:45,160 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:58:45,160 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 10:59:50,152 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 10:59:50,152 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:00:55,436 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:00:55,436 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:02:00,544 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:02:00,544 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:03:06,251 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:03:06,253 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:04:11,617 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:04:11,618 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:05:17,469 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:05:17,470 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:06:22,537 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:06:22,537 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:07:27,890 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:07:27,891 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:08:32,982 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:08:32,982 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:09:38,031 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:09:38,032 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:10:43,163 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:10:43,164 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:11:48,324 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:11:48,325 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:12:53,615 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:12:53,616 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:14:03,025 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:14:03,027 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:15:08,148 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:15:08,149 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:16:13,441 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:16:13,443 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:17:18,643 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:17:18,644 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:18:24,122 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:18:24,124 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:19:31,647 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:19:31,647 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:20:36,988 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:20:36,989 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:21:42,020 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:21:42,021 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:22:47,526 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:22:47,527 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:23:52,651 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:23:52,653 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:24:58,456 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:24:58,457 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:26:03,552 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:26:03,553 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:27:09,262 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:27:09,263 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:28:14,300 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:28:14,301 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:29:19,756 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:29:19,757 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:30:24,891 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:30:24,892 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:31:30,171 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:31:30,172 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:32:35,349 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:32:35,350 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:33:40,713 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:33:40,714 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:34:45,894 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:34:45,894 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:35:51,213 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:35:51,213 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:36:56,297 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:36:56,298 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:38:01,693 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:38:01,694 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:39:06,920 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:39:06,921 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:40:12,423 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:40:12,423 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:41:17,783 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:41:17,784 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:42:23,125 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:42:23,125 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:43:28,222 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:43:28,223 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:44:33,864 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:44:33,864 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:45:39,012 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:45:39,012 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:46:44,812 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:46:44,813 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:47:49,922 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:47:49,923 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:48:55,251 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:48:55,252 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:50:00,348 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:50:00,349 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:51:05,483 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:51:05,485 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:52:10,553 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:52:10,554 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:53:16,005 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:53:16,005 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:54:21,145 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:54:21,146 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:55:26,284 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:55:26,285 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:56:31,451 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:56:31,453 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:57:37,129 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:57:37,130 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:58:42,326 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:58:42,326 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 11:59:47,756 | ERROR | $TATAMOTORS.NS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2026-07-08 11:59:47,757 | WARNING | No data for TATAMOTORS — skipping
+2026-07-08 13:05:24,842 | ERROR | $TCS.NS: possibly delisted; no price data found  (period=1d)
+2026-07-08 13:05:24,847 | WARNING | No data for TCS — skipping
+2026-07-08 13:05:24,848 | INFO | [PAPER] BUY 4 TCS @ ~0.0
+2026-07-08 13:05:24,849 | INFO | EXITED [TARGET]: TCS @ 0.0 | P&L: ₹8340.00
+2026-07-08 13:05:45,220 | ERROR | $MARUTI.NS: possibly delisted; no price data found  (period=1d)
+2026-07-08 13:05:45,222 | WARNING | No data for MARUTI — skipping
+2026-07-08 13:05:45,222 | INFO | [PAPER] BUY 1 MARUTI @ ~0.0
+2026-07-08 13:05:45,222 | INFO | EXITED [TARGET]: MARUTI @ 0.0 | P&L: ₹14255.00
+2026-07-08 15:00:45,780 | INFO | Day complete. Total P&L: ₹22518.50
+Traceback (most recent call last):
+  File "D:\Projects\Stock-bot\Testing\files\trading_bot.py", line 539, in <module>
+    run_bot()
+  File "D:\Projects\Stock-bot\Testing\files\trading_bot.py", line 534, in run_bot
+    save_daily_report(state, CONFIG)
+  File "D:\Projects\Stock-bot\Testing\files\trading_bot.py", line 422, in save_daily_report
+    f.write(f"  Capital:         ₹{config['TOTAL_CAPITAL']:,}\n")
+  File "C:\Users\91704\AppData\Local\Programs\Python\Python39\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u20b9' in position 19: character maps to <undefined>
