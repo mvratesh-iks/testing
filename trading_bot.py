@@ -267,12 +267,20 @@ class ORBStrategy:
         today = datetime.datetime.now().replace(hour=9, minute=15, second=0)
         end   = datetime.datetime.now().replace(hour=9, minute=30, second=0)
 
+        failed = []
         for symbol in self.config["WATCHLIST"]:
             high, low = self.broker.get_historical_range(symbol, today, end)
+            if high == 0.0 or low == 0.0:
+                logging.warning(f"Skipping {symbol} — no data (delisted or unavailable)")
+                failed.append(symbol)
+                continue
             self.state.opening_ranges[symbol] = OpeningRange(
                 symbol=symbol, high=high, low=low, established=True
             )
             logging.info(f"OR for {symbol}: High={high}, Low={low}")
+
+        if failed:
+            logging.warning(f"Excluded from watchlist today: {failed}")
 
     def calculate_position_size(self, entry: float, stop_loss: float) -> int:
         """Position sizing based on risk-per-trade rule."""
@@ -355,6 +363,11 @@ class ORBStrategy:
         for symbol, pos in self.state.positions.items():
             ltp = self.broker.get_ltp(symbol)
 
+            # Skip if price fetch failed — don't act on bad data
+            if ltp == 0.0:
+                logging.warning(f"Skipping position check for {symbol} — no price data")
+                continue
+
             hit_target = (pos.side == "BUY"  and ltp >= pos.target)  or \
                          (pos.side == "SELL" and ltp <= pos.target)
             hit_stop   = (pos.side == "BUY"  and ltp <= pos.stop_loss) or \
@@ -414,7 +427,7 @@ def save_daily_report(state, config):
 
     # === TEXT REPORT ===
     txt_path = f"daily_logs/{today}_report.txt"
-    with open(txt_path, "w") as f:
+    with open(txt_path, "w", encoding="utf-8") as f:
         f.write("=" * 60 + "\n")
         f.write(f"  PAPER TRADING DAILY REPORT — {today}\n")
         f.write("=" * 60 + "\n\n")
