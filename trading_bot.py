@@ -67,37 +67,37 @@ CONFIG = {
     "LAST_ENTRY_TIME":  "12:00",      # No new trades after noon
     "TARGET_MULTIPLIER": 1.5,         # Target = 1.5x risk (was 2.0)
 
-    # === Stocks to watch (curated for ORB - high liquidity + volatility) ===
-    # Diversified across 8 sectors, all Nifty 50 / high liquidity
+    # === Stocks to watch (verified Yahoo Finance .NS tickers) ===
     "WATCHLIST": [
         # Energy & Conglomerates
-        "RELIANCE",     # Most liquid stock on NSE
-        "ADANIENT",     # High volatility, strong moves
+        "RELIANCE",     # RELIANCE.NS ✅
+        "ADANIENT",     # ADANIENT.NS ✅
 
         # Auto
-        "TATAMOTORS",   # Best performer in v1+v2 backtest
-        "MARUTI",       # Large cap auto, clean trends
-        "BAJAJ-AUTO",   # Strong intraday momentum
+        # NOTE: TATAMOTORS split into two companies in Oct 2025
+        "TMPV",         # TMPV.NS ✅ Tata Motors Passenger Vehicles (cars/EVs)
+        "TMCV",         # TMCV.NS ✅ Tata Motors Commercial Vehicles (trucks)
+        "MARUTI",       # MARUTI.NS ✅
+        "BAJAJ-AUTO",   # BAJAJ-AUTO.NS ✅
 
         # Banking & Finance
-        "ICICIBANK",    # High liquidity
-        "HDFCBANK",     # Most liquid bank
-        "AXISBANK",     # More volatile than HDFC/ICICI
-        "KOTAKBANK",    # Strong institutional activity
-        "SBIN",         # High retail + institutional volume
+        "ICICIBANK",    # ICICIBANK.NS ✅
+        "HDFCBANK",     # HDFCBANK.NS ✅
+        "AXISBANK",     # AXISBANK.NS ✅
+        "KOTAKBANK",    # KOTAKBANK.NS ✅
+        "SBIN",         # SBIN.NS ✅
 
         # IT
-        "INFY",         # Reacts to global cues
-        "TCS",          # Most liquid IT stock
-        "WIPRO",        # More volatile IT name
+        "INFY",         # INFY.NS ✅
+        "TCS",          # TCS.NS ✅
+        "WIPRO",        # WIPRO.NS ✅
 
-        # Metals & Mining
-        "TATASTEEL",    # High intraday volatility
-        "JSWSTEEL",     # Similar to TATASTEEL, different moves
+        # Metals
+        "JSWSTEEL",     # JSWSTEEL.NS ✅
 
         # Pharma
-        "SUNPHARMA",    # Defensive + news-driven moves
-        "DRREDDY",      # Good intraday range, pharma leader
+        "SUNPHARMA",    # SUNPHARMA.NS ✅
+        "DRREDDY",      # DRREDDY.NS ✅
     ],
 
     # === Timing (IST) ===
@@ -167,11 +167,11 @@ class BrokerInterface:
             "MARUTI":     "MARUTI.NS",
             "SBIN":       "SBIN.NS",
             "SUNPHARMA":  "SUNPHARMA.NS",
-            "TATASTEEL":  "TATASTEEL.NS",
             "WIPRO":      "WIPRO.NS",
             "AXISBANK":   "AXISBANK.NS",
             "TCS":        "TCS.NS",
-            # Default pattern for rest: SYMBOL + ".NS"
+            "TMPV":       "TMPV.NS",   # Tata Motors Passenger Vehicles
+            "TMCV":       "TMCV.NS",   # Tata Motors Commercial Vehicles
         }
 
         if not self.paper_mode:
