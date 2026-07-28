@@ -38,50 +38,35 @@ import yfinance as yf
 # CONFIG - match your bot config
 # ================================================================
 
-USE_YFINANCE = True            # True = auto-download free data
+USE_YFINANCE = True
 
-# ⚠️  Yahoo Finance data limits (IMPORTANT):
-#   - "1m"  interval → max 7 days of history
-#   - "5m"  interval → max 60 days of history
-#   - "15m" interval → max 60 days of history
-#   - "1h"  interval → max 730 days of history
-#
-# For a meaningful backtest, we use 5-minute bars over 60 days.
-# The opening range is calculated from the first 3 five-min bars
-# (9:15, 9:20, 9:25) which covers 9:15-9:30 AM.
-
-INTERVAL = "5m"                # "1m" for max resolution, "5m" for more history
-LOOKBACK_DAYS = 60             # 7 max for 1m, 60 max for 5m
-
+INTERVAL = "5m"
+LOOKBACK_DAYS = 60
 DATA_DIR = "./data"
 STARTING_CAPITAL = 10000
 RISK_PER_TRADE_PCT = 1.0
-MAX_TRADES_PER_DAY = 3
+MAX_TRADES_PER_DAY = 2       # Reduced from 3
 
-# ================================================================
-# QUALITY FILTERS (ORB v2) — set any to None/0 to disable
-# ================================================================
-# These filters cut trade count by ~70% while keeping the winners.
+# ORB v2 filters
+MIN_BREAKOUT_PCT  = 0.20
+MIN_RANGE_PCT     = 0.50
+LAST_ENTRY_TIME   = "12:00"
+TARGET_MULTIPLIER = 1.0      # Reduced from 1.5 based on 11-day data
+ONE_TRADE_PER_DAY = True
 
-MIN_BREAKOUT_PCT      = 0.20   # Require breakout of 0.20% beyond range
-MIN_RANGE_PCT         = 0.50   # Opening range must be ≥0.50% wide
-LAST_ENTRY_TIME       = "12:00" # No new trades after this (avoid chop)
-TARGET_MULTIPLIER     = 1.5    # Target = 1.5x risk (was 2.0 in v1)
-ONE_TRADE_PER_DAY     = True   # Max 1 trade per stock per day
+# v3 confluence filters
+USE_RSI_FILTER    = True
+RSI_PERIOD        = 14
+RSI_BUY_MIN, RSI_BUY_MAX   = 40, 65
+RSI_SELL_MIN, RSI_SELL_MAX = 35, 60
+VOLUME_MULTIPLIER = 1.5      # Need 1.5x avg volume at breakout
 
+# Cleaned watchlist — removed AXISBANK(-151), ADANIENT(-116), JSWSTEEL(-71)
 WATCHLIST = [
-    # Energy & Conglomerates
-    "RELIANCE", "ADANIENT",
-    # Auto
-    "TATAMOTORS", "MARUTI", "BAJAJ-AUTO",
-    # Banking & Finance
-    "ICICIBANK", "HDFCBANK", "AXISBANK", "KOTAKBANK", "SBIN",
-    # IT
+    "TMPV", "TMCV", "MARUTI", "BAJAJ-AUTO",
+    "ICICIBANK", "HDFCBANK", "KOTAKBANK", "SBIN",
     "INFY", "TCS", "WIPRO",
-    # Metals
-    "TATASTEEL", "JSWSTEEL",
-    # Pharma
-    "SUNPHARMA", "DRREDDY",
+    "RELIANCE", "SUNPHARMA", "DRREDDY",
 ]
 
 
@@ -153,6 +138,25 @@ def yahoo_ticker(symbol):
     return YAHOO_MAP.get(symbol, f"{symbol}.NS")
 
 
+def calculate_rsi(prices: list, period: int = 14) -> float:
+    if len(prices) < period + 1:
+        return 50.0
+    gains, losses = [], []
+    for i in range(1, period + 1):
+        change = prices[i] - prices[i - 1]
+        gains.append(max(change, 0))
+        losses.append(max(-change, 0))
+    avg_gain = sum(gains) / period
+    avg_loss = sum(losses) / period
+    for i in range(period + 1, len(prices)):
+        change = prices[i] - prices[i - 1]
+        avg_gain = (avg_gain * (period - 1) + max(change, 0)) / period
+        avg_loss = (avg_loss * (period - 1) + max(-change, 0)) / period
+    if avg_loss == 0:
+        return 100.0
+    return round(100 - (100 / (1 + avg_gain / avg_loss)), 2)
+
+
 def load_from_yfinance(symbol: str) -> list:
     """Download recent OHLCV data from Yahoo Finance (FREE)."""
     ticker = yf.Ticker(yahoo_ticker(symbol))
@@ -215,7 +219,10 @@ def backtest_day(symbol: str, day_bars: list, capital: float) -> Trade:
     # ============ FILTER 1: Range must be wide enough ============
     range_pct = (or_high - or_low) / or_low * 100
     if MIN_RANGE_PCT and range_pct < MIN_RANGE_PCT:
-        return None  # skip — range too narrow, choppy day
+        return None
+
+    # Average volume during opening range (for volume filter)
+    avg_vol = sum(b["volume"] for b in or_bars) / len(or_bars) if or_bars else 0
 
     # 2. Look for breakout AFTER opening range ends
     trading_bars = [b for b in day_bars if b["timestamp"].time() > datetime.time(9, 30)]
@@ -234,28 +241,46 @@ def backtest_day(symbol: str, day_bars: list, capital: float) -> Trade:
 
     entry, side, stop_loss, target, entry_bar = None, None, None, None, None
 
+    # Running close prices for RSI calculation
+    close_prices = [b["close"] for b in or_bars]
+
     for bar in trading_bars:
         if bar["timestamp"].time() >= datetime.time(15, 0):
             break
 
-        # No new entries after cutoff (but manage existing)
+        # Update running close prices for RSI
+        close_prices.append(bar["close"])
+
         past_cutoff = bar["timestamp"].time() >= cutoff_time
 
-        # BUY: real breakout above trigger
-        if entry is None and not past_cutoff and bar["high"] > buy_trigger:
-            entry     = buy_trigger
-            side      = "BUY"
-            stop_loss = or_low
-            target    = entry + TARGET_MULTIPLIER * (entry - stop_loss)
-            entry_bar = bar
+        if entry is None and not past_cutoff:
+            # ===== CONFLUENCE FILTER: VOLUME =====
+            vol_ok = True
+            if VOLUME_MULTIPLIER and avg_vol > 0:
+                vol_ok = bar["volume"] >= avg_vol * VOLUME_MULTIPLIER
 
-        # SELL: real breakdown below trigger
-        elif entry is None and not past_cutoff and bar["low"] < sell_trigger:
-            entry     = sell_trigger
-            side      = "SELL"
-            stop_loss = or_high
-            target    = entry - TARGET_MULTIPLIER * (stop_loss - entry)
-            entry_bar = bar
+            # ===== CONFLUENCE FILTER: RSI =====
+            rsi = calculate_rsi(close_prices, RSI_PERIOD)
+
+            # BUY: real breakout above trigger
+            if bar["high"] > buy_trigger:
+                rsi_ok = (RSI_BUY_MIN <= rsi <= RSI_BUY_MAX) if USE_RSI_FILTER else True
+                if vol_ok and rsi_ok:
+                    entry     = buy_trigger
+                    side      = "BUY"
+                    stop_loss = or_low
+                    target    = entry + TARGET_MULTIPLIER * (entry - stop_loss)
+                    entry_bar = bar
+
+            # SELL: real breakdown below trigger
+            elif bar["low"] < sell_trigger:
+                rsi_ok = (RSI_SELL_MIN <= rsi <= RSI_SELL_MAX) if USE_RSI_FILTER else True
+                if vol_ok and rsi_ok:
+                    entry     = sell_trigger
+                    side      = "SELL"
+                    stop_loss = or_high
+                    target    = entry - TARGET_MULTIPLIER * (stop_loss - entry)
+                    entry_bar = bar
 
         # Manage open position
         if entry is not None and bar["timestamp"] > entry_bar["timestamp"]:
