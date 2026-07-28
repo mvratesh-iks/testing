@@ -1,0 +1,108 @@
+============================================================
+  BACKTESTING ORB STRATEGY
+  Interval: 5m | Lookback: 60 days
+============================================================
+
+📊 TMPV
+  📥 TMPV: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 23 trades across 58 days
+     Win rate: 65.2% | Total P&L: ₹719.01
+     Days with no signal: 35
+
+📊 TMCV
+  📥 TMCV: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 19 trades across 58 days
+     Win rate: 36.8% | Total P&L: ₹-290.20
+     Days with no signal: 39
+
+📊 MARUTI
+  📥 MARUTI: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 26 trades across 58 days
+     Win rate: 53.8% | Total P&L: ₹441.05
+     Days with no signal: 32
+
+📊 BAJAJ-AUTO
+  📥 BAJAJ-AUTO: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 25 trades across 58 days
+     Win rate: 64.0% | Total P&L: ₹375.15
+     Days with no signal: 33
+
+📊 ICICIBANK
+  📥 ICICIBANK: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 13 trades across 58 days
+     Win rate: 30.8% | Total P&L: ₹-615.19
+     Days with no signal: 45
+
+📊 HDFCBANK
+  📥 HDFCBANK: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 13 trades across 58 days
+     Win rate: 61.5% | Total P&L: ₹268.54
+     Days with no signal: 45
+
+📊 KOTAKBANK
+  📥 KOTAKBANK: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 27 trades across 58 days
+     Win rate: 66.7% | Total P&L: ₹467.13
+     Days with no signal: 31
+
+📊 SBIN
+  📥 SBIN: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 20 trades across 58 days
+     Win rate: 50.0% | Total P&L: ₹-65.85
+     Days with no signal: 38
+
+📊 INFY
+  📥 INFY: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 20 trades across 58 days
+     Win rate: 55.0% | Total P&L: ₹73.76
+     Days with no signal: 38
+
+📊 TCS
+  📥 TCS: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 20 trades across 58 days
+     Win rate: 40.0% | Total P&L: ₹-264.30
+     Days with no signal: 38
+
+📊 WIPRO
+  📥 WIPRO: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 8 trades across 58 days
+     Win rate: 62.5% | Total P&L: ₹377.10
+     Days with no signal: 50
+
+📊 RELIANCE
+  📥 RELIANCE: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 14 trades across 58 days
+     Win rate: 64.3% | Total P&L: ₹185.54
+     Days with no signal: 44
+
+📊 SUNPHARMA
+  📥 SUNPHARMA: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 21 trades across 58 days
+     Win rate: 47.6% | Total P&L: ₹-70.31
+     Days with no signal: 37
+
+📊 DRREDDY
+  📥 DRREDDY: 4350 bars (5m) from 2026-05-06 to 2026-07-28
+  ✅ 19 trades across 58 days
+     Win rate: 47.4% | Total P&L: ₹74.67
+     Days with no signal: 39
+
+============================================================
+  OVERALL RESULTS
+============================================================
+  Total stock-days scanned: 812
+  Days with trades:         268
+  Total trades:      268
+  Winners:           144  |  Losers: 124
+  Win rate:          53.7%
+  Avg win:           ₹77.27
+  Avg loss:          ₹-76.21
+  Total P&L:         ₹1,676.09
+  Return on capital: 16.76%
+  Ending capital:    ₹11,676.09
+
+  ⚠️  Estimated brokerage & taxes: ~₹10,720.00
+  💰 Net P&L after costs: ~₹-9,043.91
+
+  📄 Saved 268 trades to trades.csv
+     Run: python analyze.py  to see detailed breakdown
